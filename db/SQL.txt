@@ -1,0 +1,24 @@
+ALTER TABLE `games` ADD `schedule` TEXT NULL DEFAULT NULL AFTER `logo`;
+31/08/2023
+INSERT INTO `settings` (`id`, `name`, `detail`, `created_at`, `updated_at`) VALUES (NULL, 'all_games_free_mode', '1', NULL, NULL), (NULL, 'two_sure_free_mode', '1', NULL, NULL);
+ALTER TABLE `slider` ADD `link` TEXT NULL DEFAULT NULL AFTER `image`;
+ALTER TABLE `games` ADD `last_end_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `end_date`;
+ALTER TABLE `games` CHANGE `last_end_date` `last_end_date` DATETIME NULL DEFAULT NULL;
+ALTER TABLE `games` CHANGE `end_date` `end_date` VARCHAR(30) NULL DEFAULT NULL;
+ALTER TABLE `games` CHANGE `last_end_date` `last_end_date` VARCHAR(30) NULL DEFAULT NULL;
+ALTER TABLE `social_media_links` ADD `tiktok` TEXT NULL DEFAULT NULL AFTER `facebook`;
+ALTER TABLE `social_media_links` ADD `youtube_video` TEXT NULL DEFAULT NULL AFTER `tiktok`;
+
+
+9/4/2023
+variant table
+ALTER TABLE `orders` ADD `variant_id` INT NULL DEFAULT NULL AFTER `product_id`;
+ALTER TABLE `orders` ADD `address` TEXT NULL DEFAULT NULL AFTER `payment_id`;
+9/11
+INSERT INTO `plan_flags` (`id`, `sets`, `last_updated_plan_id`, `status`) VALUES (NULL, '2', '1', '1'), (NULL, '3', '19', '1');
+INSERT INTO `plan_flags` (`id`, `sets`, `last_updated_plan_id`, `status`) VALUES (NULL, '6', '10', '1');
+26/9/2023
+
+ALTER TABLE `forecaster_plays` ADD `game_name` VARCHAR(255) NULL DEFAULT NULL AFTER `lottery_id`;
+ALTER TABLE `plans` CHANGE `view` `g1_view` INT(11) NULL DEFAULT '0' COMMENT '0=not_view,1=view';
+ALTER TABLE `plans` ADD `g2_view` INT NULL DEFAULT '0' COMMENT '0=not_view,1=view ' AFTER `g1_view`, ADD `g3_view` INT NULL DEFAULT '0' COMMENT '0=not_view,1=view ' AFTER `g2_view`, ADD `g4_view` INT NULL DEFAULT '0' COMMENT '0=not_view,1=view ' AFTER `g3_view`, ADD `g5_view` INT NULL DEFAULT '0' COMMENT '0=not_view,1=view ' AFTER `g4_view`, ADD `g6_view` INT NULL DEFAULT '0' COMMENT '0=not_view,1=view ' AFTER `g5_view`;

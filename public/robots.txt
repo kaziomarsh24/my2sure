@@ -1,0 +1,52 @@
+# robots.txt for my2sure.com
+# Generated for: https://www.my2sure.com
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Block access to admin and private areas
+Disallow: /login
+Disallow: /register
+Disallow: /home
+Disallow: /admin/
+Disallow: /referralpage/
+Disallow: /orders
+Disallow: /competition
+Disallow: /vip-gate
+Disallow: /twosure-gate
+Disallow: /allgames-gate
+Disallow: /registerPay
+Disallow: /subscribe
+Disallow: /redirectPayment
+Disallow: /paypal
+Disallow: /payViaCreditCard
+Disallow: /enableTrial
+Disallow: /dashboard/
+Disallow: /user/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /api/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /uploads/private/
+Disallow: /public/login
+
+
+# Block duplicate or low-value pages
+Disallow: /search?
+Disallow: /tag/
+Disallow: /?s=
+Disallow: /page/?
+
+# Allow Googlebot specifically (just to be explicit)
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot specifically
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.my2sure.com/sitemap.xml
