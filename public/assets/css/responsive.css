@@ -645,3 +645,21 @@
     justify-content: center!important;
   }
 }
+
+/* Mobile header sticky and logo display adjustments */
+@media (max-width: 991px) {
+  .header-section.menu-fixed {
+    position: static !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  .site-logo img {
+    max-height: 48px !important;
+    width: auto !important;
+  }
+
+  .header-bottom {
+    padding: 8px 0;
+  }
+}
