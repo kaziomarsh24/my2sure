@@ -6,6 +6,7 @@ use App\setting;
 use App\slider;
 use App\SocialMediaLink;
 use App\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -19,8 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         app()->bind("objSetting", function($app) {
-            $obj = setting::get();
-            return $obj;
+            return Cache::remember('global_settings', 600, fn () => setting::get());
         });
     }
 
@@ -31,18 +31,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $objSliders = Slider::all()->toArray();
-        $users      = User::all();
-        $users      = count($users);
+        try {
+            $objSliders = Cache::remember('global_sliders', 600, function () {
+                return Slider::all()->toArray();
+            });
 
-        View::share('objSliders', $objSliders);
-        View::share('users', $users);
+            $users = Cache::remember('total_users_count', 300, function () {
+                return User::count();
+            });
 
-        // Share settings globally across all views
-        View::composer('*', function ($view) {
-            if (!$view->offsetExists('settings')) {
-                $view->with('settings', setting::get());
-            }
-        });
+            $settings = Cache::remember('global_settings', 600, function () {
+                return setting::get();
+            });
+
+            View::share('objSliders', $objSliders);
+            View::share('users', $users);
+            View::share('settings', $settings);
+        } catch (\Throwable $e) {
+            // Skip if database is not yet available during CLI bootstrap
+        }
     }
 }

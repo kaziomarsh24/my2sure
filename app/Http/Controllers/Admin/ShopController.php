@@ -10,6 +10,7 @@ use App\variant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use KaziOmar\SmartUpload\Facades\Upload;
 
 class ShopController extends Controller
 {
@@ -135,18 +136,17 @@ class ShopController extends Controller
                 throw new ValidationException("Validation fails.");
             }
 
-            $inputData      = $request->all($reqFields);
-            $PictureName = md5($inputData['name']);
-
-            if($request->has('logo'))
-            {
-                $file = $request->file('logo');
-                $destinationPath = 'uploads';
-                $file->move($destinationPath,$PictureName);
-                $inputData['logo']   = $PictureName;
-            }
+            $inputData = $request->all($reqFields);
 
             DB::beginTransaction();
+            if ($request->hasFile('logo')) {
+                $uploaded = Upload::file($request->file('logo'))
+                    ->toWebp(90)
+                    ->scaleDown(1400, 1400)
+                    ->variants(['thumb' => [600, 600]])
+                    ->save();
+                $inputData['logo'] = $uploaded->path;
+            }
             $obj = new shop($inputData);
 
             $obj->save();
@@ -218,16 +218,16 @@ class ShopController extends Controller
                 throw new \Exception("Data Not Found ", 1);
             }
             DB::beginTransaction();
-            $objData->name 			= $inputData['name'];
-            $objData->description		= $inputData['description'];
-            $objData->price 		= $inputData['price'];
-            $PictureName            = md5($inputData['name']);
-            if($request->has('logo'))
-            {
-                $file = $request->file('logo');
-                $destinationPath = 'uploads';
-                $file->move($destinationPath,$PictureName);
-                $objData->logo   = $PictureName;
+            $objData->name = $inputData['name'];
+            $objData->description = $inputData['description'];
+            $objData->price = $inputData['price'];
+            if ($request->hasFile('logo')) {
+                $uploaded = Upload::file($request->file('logo'))
+                    ->toWebp(90)
+                    ->scaleDown(1400, 1400)
+                    ->variants(['thumb' => [600, 600]])
+                    ->save();
+                $objData->logo = $uploaded->path;
             }
 
             //add product variants

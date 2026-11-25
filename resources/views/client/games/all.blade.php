@@ -127,7 +127,7 @@
                     @endphp
                     <div class="col-lg-4 col-md-6" style="    margin-bottom: 33px;">
                         <div class="jackpot-item text-center">
-                            <img src="{{ asset('uploads/'.$obj->game->logo)}}" alt="image">
+                            <img src="{{ \App\Support\MediaHelper::url($obj->game->logo, 'thumb') }}" loading="lazy" decoding="async" alt="{{ $obj->name }}">
                             <span class="amount">{{$obj->name}}</span>
                             <h5 class="title">{{$result}}</h5>
                             <p class="next-draw-time">End Date :

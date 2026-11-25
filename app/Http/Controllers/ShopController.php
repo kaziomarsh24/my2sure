@@ -8,6 +8,7 @@ use App\transactions;
 use App\variant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
 use Stripe\Order;
 
@@ -38,7 +39,9 @@ class ShopController extends Controller
             if (!empty($request->name)) {
                 $objGames = shop::where('name', 'like', '%' . $request->name . '%')->orderBy('id', 'DESC')->get();
             } else {
-                $objGames = shop::all();
+                $objGames = Cache::remember('shop_products', 600, function () {
+                    return shop::select('id', 'name', 'price', 'logo')->get();
+                });
             }
 
             $data = [

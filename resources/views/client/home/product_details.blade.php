@@ -240,7 +240,7 @@
 
             <div class="col-lg-6 col-md-6" style="margin-bottom: 33px;">
                 <div>
-                    <img class="img-fluid" src="{{ asset('uploads/'.$product->logo)}}" alt="image">
+                    <img class="img-fluid" src="{{ upload_url($product->logo) }}" decoding="async" alt="{{ $product->name }}">
                 </div>
             </div>
 

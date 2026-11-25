@@ -79,7 +79,7 @@
 
                     <div class="col-lg-4 col-md-6" style=" margin-bottom: 33px;">
                         <div class="jackpot-item text-center">
-                            <img src="{{ asset('uploads/'.$obj->logo)}}" alt="image">
+                            <img src="{{ \App\Support\MediaHelper::url($obj->logo, 'thumb') }}" loading="lazy" decoding="async" alt="{{ $obj->name }}">
                             <span class="amount">{{$obj->name}}</span>
                             <h5 class="title">${{$obj->price}}</h5>
                             <a href="{{route('client.product_details',['id'=>$obj->id])}}" class="cmn-btn">View Details!</a>

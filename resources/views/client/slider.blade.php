@@ -4,13 +4,13 @@
             {{-- Original set --}}
             @foreach($objSliders as $objSlider)
                 <a href="{{$objSlider['link']}}" target="_blank" class="marquee-item">
-                    <img src="{{asset('uploads/'.$objSlider['image'])}}" alt="slide">
+                    <img src="{{ \App\Support\MediaHelper::url($objSlider['image'], 'thumb') }}" loading="lazy" decoding="async" alt="slide">
                 </a>
             @endforeach
             {{-- Duplicate set for seamless loop --}}
             @foreach($objSliders as $objSlider)
                 <a href="{{$objSlider['link']}}" target="_blank" class="marquee-item">
-                    <img src="{{asset('uploads/'.$objSlider['image'])}}" alt="slide">
+                    <img src="{{ \App\Support\MediaHelper::url($objSlider['image'], 'thumb') }}" loading="lazy" decoding="async" alt="slide">
                 </a>
             @endforeach
         </div>

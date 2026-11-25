@@ -85,7 +85,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}">
 
     <!-- paypal -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AWyK3T8QAfiWEClAnnw10oSLjBcmljlJhFN1_fKOtyVlj_90CuYImu687-Rwhsh-JLS1HzhZQwT8maCc&currency=USD&disable-funding=card,credit,sepa,giropay,sofort">
+    <script defer src="https://www.paypal.com/sdk/js?client-id=AWyK3T8QAfiWEClAnnw10oSLjBcmljlJhFN1_fKOtyVlj_90CuYImu687-Rwhsh-JLS1HzhZQwT8maCc&currency=USD&disable-funding=card,credit,sepa,giropay,sofort">
     </script>
 {{--    <script src="https://www.paypal.com/sdk/js?client-id=AYEAtszqFLBb8JwGTRRUPqK6tn6o-6dVV4sFho-pArw4XxK8siXSR2eKPHkoedxYXFodDaqisgF1JSBc&currency=USD&disable-funding=card,credit,sepa,giropay,sofort">--}}
 {{--    </script>--}}
