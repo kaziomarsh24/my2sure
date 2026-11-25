@@ -3,6 +3,7 @@
 
   jQuery(document).ready(function(e) {
       background();
+      $("#preloader").hide();
   });
   function background()
   {
@@ -27,11 +28,7 @@
   $(window).on('load', function(){
 
       //preloader
-      $("#preloader").delay(300).animate({
-        "opacity" : "0"
-        }, 500, function() {
-        $("#preloader").css("display","none");
-    });
+      $("#preloader").css("display", "none");
 
     // color version change
   $('.template-version button').on('click', function(){

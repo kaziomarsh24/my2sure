@@ -66,19 +66,14 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css')}}">
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
-    <!-- animate css link -->
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}">
-    <!-- lightcase css link -->
-    <link rel="stylesheet" href="{{ asset('assets/css/lightcase.css')}}">
-    <!-- slick css link -->
-    <link rel="stylesheet" href="{{ asset('assets/slick/css/slick.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/slick/css/slick-theme.css')}}">
-    <!-- swiper css link -->
-    <link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css')}}">
-    <!-- flipclock css link -->
-    <link rel="stylesheet" href="{{ asset('assets/css/flipclock.css')}}">
-    <!-- jqvmap css link -->
-    <link rel="stylesheet" href="{{ asset('assets/css/jqvmap.min.css')}}">
+    <!-- non-critical plugin css loaded asynchronously -->
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css')}}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/css/lightcase.css')}}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/slick/css/slick.css')}}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/slick/css/slick-theme.css')}}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css')}}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/css/flipclock.css')}}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/css/jqvmap.min.css')}}" media="print" onload="this.media='all'">
     <!-- main style css link -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <!-- responsive css link -->
