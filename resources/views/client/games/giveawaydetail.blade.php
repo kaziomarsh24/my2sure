@@ -77,7 +77,7 @@
             <div class="single-header d-flex justify-content-between">
               <div class="left d-flex">
                 <div class="icon">
-                  <img src="{{asset('assets/images/elements/jackpot-1.png')}}" alt="">
+                  <img src="{{ asset('assets/images/logo.png') }}" alt="My2Sure" style="max-width: 110px; max-height: 75px; object-fit: contain; background: #000; padding: 6px; border-radius: 6px;">
                 </div>
                 <div class="content">
                   <h3 class="title">{{$objGame->name}}</h3>

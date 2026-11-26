@@ -646,7 +646,16 @@
   }
 }
 
-/* Mobile header sticky and logo display adjustments */
+/* Keep logo compact on desktop and disable sticky header on mobile */
+.site-logo img {
+  max-height: 56px !important;
+  width: auto !important;
+}
+
+.header-bottom {
+  padding: 8px 0;
+}
+
 @media (max-width: 991px) {
   .header-section.menu-fixed {
     position: static !important;
@@ -656,10 +665,5 @@
 
   .site-logo img {
     max-height: 48px !important;
-    width: auto !important;
-  }
-
-  .header-bottom {
-    padding: 8px 0;
   }
 }

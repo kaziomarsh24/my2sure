@@ -41,13 +41,13 @@ Route::name('client.')->group(function(){
 
 
 	Route::get('/tos', 'WelcomeController@tos')->name('tos');
-	Route::get('/how-to-play', 'WelcomeController@play')->name('play');
+	Route::any('/how-to-play', fn () => abort(410));
 	Route::get('/games', 'WelcomeController@play')->name('play');
 	Route::get('/contact', 'WelcomeController@contact')->name('contact');
 	Route::post('/contact/saveContact', 'WelcomeController@SendContact')->name('saveContact');
 
 
-    Route::get('/giveawaydetail/{id}', 'GamesController@giveawaydetail')->name('giveawaydetail');
+    Route::any('/giveawaydetail/{id?}', fn () => abort(410));
 	Route::get('/giveawayadd', 'GamesController@giveawayadd')->name('giveawayadd');
     Route::get('/results', 'BoardController@results')->name('results');
     Route::get('/vip', 'BoardController@vip')->name('vip');

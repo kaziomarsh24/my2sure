@@ -35,6 +35,8 @@ Disallow: /public/login
 
 
 # Block duplicate or low-value pages
+Disallow: /how-to-play
+Disallow: /giveawaydetail/
 Disallow: /search?
 Disallow: /tag/
 Disallow: /?s=
