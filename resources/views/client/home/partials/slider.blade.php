@@ -23,6 +23,10 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="banner-content">
+                          <p style="font-weight: 700; font-size: 20px; line-height: 1.35; margin-bottom: 12px; color: #333745;">
+                              #1 In Africa<br>
+                              Lottery &amp; Football Forecaster
+                          </p>
                           <h1 class="title">Take the chance to change your life</h1>
                           @if ($users !== null )
 

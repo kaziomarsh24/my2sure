@@ -275,7 +275,7 @@
                 </div>
 
                 <textarea class="form-control my-2" rows="3"
-                    placeholder="Enter Delivered address"
+                    placeholder="Enter Delivery Address"
                     required id="address"></textarea>
 
                 @if(Auth::user())

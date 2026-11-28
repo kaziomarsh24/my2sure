@@ -90,10 +90,6 @@
 </head>
 <body>
 
-<!-- preloader start -->
-<div id="preloader"></div>
-<!-- preloader end -->
-
 
 
 <div class="main-light-version">
